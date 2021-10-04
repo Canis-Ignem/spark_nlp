@@ -60,4 +60,6 @@ nb = nb.fit(df_train)
 predictions = nb.transform(df_test)
 
 criterion = MulticlassClassificationEvaluator()
-criterion.evaluate(predictions)
+acc = criterion.evaluate(predictions)
+
+print(acc)
