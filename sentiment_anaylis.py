@@ -1,7 +1,6 @@
 import findspark
 findspark.init()
 import pyspark as ps
-import warnings
 from pyspark.sql import SQLContext
 
 
