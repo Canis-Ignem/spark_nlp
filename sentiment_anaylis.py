@@ -20,12 +20,12 @@ from pyspark.ml import Pipeline
 sc = ps.SparkContext.getOrCreate()
 sqlContext = SQLContext(sc)
 
-df_train = sqlContext.read.format('com.databricks.spark.csv').options(header = False, inferschema = True, sep = ";").load("train.csv")
+df_train = sqlContext.read.format('com.databricks.spark.csv').options(header = False, inferschema = True, sep = ";").load("sentiment_data/train.csv")
 df_train= df_train.withColumnRenamed('_c0','description').withColumnRenamed('_c1','feeling')
 df_train.show(10)
 
 
-df_test = sqlContext.read.format('com.databricks.spark.csv').options(header = False, inferschema = True, sep = ";").load("val.csv")
+df_test = sqlContext.read.format('com.databricks.spark.csv').options(header = False, inferschema = True, sep = ";").load("sentiment_data/val.csv")
 df_test= df_test.withColumnRenamed('_c0','description').withColumnRenamed('_c1','feeling')
 df_test.show(10)
 
